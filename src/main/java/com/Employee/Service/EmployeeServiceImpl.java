@@ -80,31 +80,31 @@ public class EmployeeServiceImpl implements EmployeeService {
 			dto.setDesiganation(employe.getDesiganation());
 			return dto;
 		}
-		 throw new EmployeNotFoundWithId("Employee not found with Id : "+Id);
+		throw new EmployeNotFoundWithId("Employee not found with Id : "+Id);
 	}
 	@Override
 	public EmployeeDTOResponse EmployeeDeleteById(Long Id) {
-		
-		    Employe employe = emprepository.findById(Id)
-		        .orElseThrow(() -> new EmployeNotFoundWithId("Employee not found with Id: " + Id));
 
-		    // ✅ Create DTO before deleting the entity
-		    EmployeeDTOResponse dto = new EmployeeDTOResponse();
-		    dto.setId(employe.getId());
-		    dto.setEmail(employe.getEmail());
-		    dto.setAge(employe.getAge());
-		    dto.setDesiganation(employe.getDesiganation());
+		Employe employe = emprepository.findById(Id)
+				.orElseThrow(() -> new EmployeNotFoundWithId("Employee not found with Id: " + Id));
 
-		    // ✅ Delete employee from DB
-		    emprepository.delete(employe);
+		// ✅ Create DTO before deleting the entity
+		EmployeeDTOResponse Response = new EmployeeDTOResponse();
+		Response.setId(employe.getId());
+		Response.setEmail(employe.getEmail());
+		Response.setAge(employe.getAge());
+		Response.setDesiganation(employe.getDesiganation());
 
-		    // ✅ Return DTO as response
-		    return dto;
-		}
+		// ✅ Delete employee from DB
+		emprepository.delete(employe);
 
-	
-		
-		
+		// ✅ Return DTO as response
+		return Response;
+	}
+
+
+
+
 
 	@Override
 	public Void EmployeeUpdateById(Long Id) {
