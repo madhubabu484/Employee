@@ -11,11 +11,11 @@ public interface EmployeeService {
 	
 	EmployeeDTOResponse createEmployee(EmpRequestDTO emprequestdto);
 	
-	List<EmployeeDTOResponse> GetAllEmployee();
+	List<Employe> GetAllEmployee();
 	
-	void EmployeeFindById(Long Id);
+	EmployeeDTOResponse EmployeeFindById(Long Id);
 	
-	void EmployeeDeleteById(Long Id);
+	EmployeeDTOResponse EmployeeDeleteById(Long Id);
 	
 	Void EmployeeUpdateById(Long Id);
 	
