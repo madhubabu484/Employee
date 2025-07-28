@@ -10,10 +10,5 @@ import com.Employee.Model.Employe;
 
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employe, Long> {
-	
-	
-	       Optional<Employe> findByemail(String email);
-
-	
-
+	Optional<Employe> findByemail(String email);
 }
